@@ -9,7 +9,7 @@ app.use(express.static(distDir));
 
 app.get("/",function(req,res){
     console.log("here");
-    res.sendfile(__dirname + "/index.html");
+    res.sendfile(distDir + "/index.html");
 })
 
 var port = process.env.port || 8080;
