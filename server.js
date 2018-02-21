@@ -7,6 +7,11 @@ var app = express();
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
+app.get("/",function(req,res){
+    console.log("here");
+    res.sendfile(__dirname + "/index.html");
+})
+
 var port = process.env.port || 8080;
 
 app.listen(port, function(){
