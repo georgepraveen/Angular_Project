@@ -1,0 +1,56 @@
+    <div class="container">
+      <br/>
+      <h1 align="center">{{title}}</h1><br/><br/>
+      <form #form="ngForm">      
+      <table class="table">          
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Date of Birth</td>
+            <td>Department</td>
+            <td>Gender</td>
+            <td>Age</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </thead>          
+        <tbody>
+            <tr>   
+                  <td>
+                    <input type="text" name="name" class="form-control" [(ngModel)]="empmodel.name" required  placeholder="Name"/>
+                  </td>
+                  <td>
+                    <input type="email" name="email" required class="form-control" [(ngModel)]="empmodel.email" placeholder="abc@xyz.com"/>
+                  </td>
+                  <td>
+                    <input type="date"  name="dob" id="datepicker"  class="form-control" [(ngModel)]="empmodel.dob" required placeholder="YYYY-MM-DD"/>
+                  </td>
+                  <td>
+                    <input type="text" name="department"  required class="form-control" [(ngModel)]="empmodel.department" placeholder="Department"/>
+                  </td>
+                  <td>
+                    <input type="text" name="gender" required class="form-control" placeholder="Gender" [(ngModel)]="empmodel.gender"/>
+                  </td>
+                  <td>
+                    <input type="number" name="age" disabled class="form-control" placeholder="Age" [(ngModel)]="empmodel.age"/>
+                  </td>
+                  <td><button name="btnadd" [disabled]="!DisableUpdate" class="btn btn-success btn-md" (click)="AddEmployeeInfo()">Add Employee</button></td>
+                  <td><button name="btnupdate" [disabled]="DisableUpdate" class="btn btn-success btn-md" (click)="updateEmployeeInfo()" >Update Employee</button>                    
+                  </td>  
+            </tr> 
+            <tr *ngFor ='let employee of employeelist'>
+                <td>{{employee.name}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.dob}}</td>
+                <td>{{employee.department}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.age}}</td>
+                <td><button name="btnDelete" class="btn btn-danger btn-sm" (click)="deleteEmployee(employee._id)">Delete</button></td>
+                <td><button name="btnEdit" class="btn btn-primary btn-sm" (click)="EditEmployee(employee._id)">Edit</button></td>
+              </tr>
+          </tbody>           
+        </table>  
+      </form>
+      
+    </div>
