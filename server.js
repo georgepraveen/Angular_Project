@@ -7,7 +7,7 @@ var app = express();
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
-app.get("/",function(req,res){
+app.get("/test",function(req,res){
     console.log("here");
     res.sendfile(distDir + "/index.html");
 })
